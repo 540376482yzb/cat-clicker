@@ -19,6 +19,9 @@ img{
     width: 300px;
     height: 200px;
 }
+header{
+    padding: 18px 12px
+}
 .cat-container{
     width: 320px;
     padding:10px;
