@@ -1,0 +1,55 @@
+*,html,body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin: 20px 20px;
+    width: 1200px;
+}
+
+ul{
+    list-style: none
+}
+li{
+    list-style: none
+}
+img{
+    width: 300px;
+    height: 200px;
+}
+.cat-container{
+    width: 320px;
+    padding:10px;
+}
+.cat-name{
+    text-align: center;
+    font-size: 20;
+    font-weight: bold;
+}
+.cat-button{
+    display: block;
+    cursor: pointer;
+    border: solid 2px grey;
+    border-radius: 5px;
+    margin: 5px 0;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0 5px 5px grey;
+    opacity: 0.5;
+}
+
+.cat-button:active{
+    box-shadow: none;
+}
+
+.active-one{
+    opacity: 1;
+}
+.click-area,.display-area{
+    display: inline-block;
+}
+.click-area{
+    width: 200px;
+}
