@@ -84,8 +84,8 @@ const clickerView = {
             this.dom.listGrp.appendChild(catBtn)
         })
 
-        this.dom.catLists = document.querySelectorAll('.cat-button')
-        const firstBtn = this.dom.catLists[0]
+        
+        const firstBtn = document.querySelectorAll('.cat-button')[0]
         initBtnActive(firstBtn)
         this.render()
     },
@@ -102,6 +102,33 @@ const clickerView = {
     }
 }
 
+
+const displayView = {
+
+    myCat: null,
+    
+    init(){
+        this.myCat = octopus.getCurrCat()
+        setDisplay(this.myCat)
+        const catDom = document.querySelector(".cat-container")
+        catDom.addEventListener('click',()=> {
+            octopus.incrCatCount()
+            this.render()
+        })
+    },
+    
+    render(){
+        this.myCat = octopus.getCurrCat()
+        setDisplay(this.myCat)
+    }
+}
+
+octopus.init()
+
+
+//=====================================================
+//Helper Functions
+//=====================================================
 function createCatBtn(cat){
     const newList = document.createElement('li')
     newList.classList.add('cat-button')
@@ -124,30 +151,10 @@ function initBtnActive(btn){
     
 }
 
-const displayView = {
-
-    myCat: null,
-    
-    init(){
-        this.myCat = octopus.getCurrCat()
-        document.querySelector(".cat-name").textContent = this.myCat.name
-        document.querySelector(".cat-image").setAttribute("src", this.myCat.url)
-        document.querySelector(".cat-count").textContent = this.myCat.count
-        const catDom = document.querySelector(".cat-container")
-        catDom.addEventListener('click',()=> {
-            octopus.incrCatCount()
-            this.render()
-        })
-    },
-    
-    render(){
-        this.myCat = octopus.getCurrCat()
-        document.querySelector(".cat-name").textContent = this.myCat.name
-        document.querySelector(".cat-image").setAttribute("src", this.myCat.url)
-        document.querySelector(".cat-count").textContent = this.myCat.count
-    }
+function setDisplay(myCat){
+    document.querySelector(".cat-name").textContent = myCat.name
+    document.querySelector(".cat-image").setAttribute("src", myCat.url)
+    document.querySelector(".cat-count").textContent = myCat.count
 }
-
-octopus.init()
 
 
