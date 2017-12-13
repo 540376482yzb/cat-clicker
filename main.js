@@ -31,6 +31,16 @@ const model = {
             }
         ],
 
+    add(catName,catImage){
+        this.cats.push(
+            {
+                name: catName,
+                count: 0,
+                url: catImage
+            }
+        )
+    },
+
     init(){
         this.currentCat = this.cats[0]
     },
@@ -58,6 +68,13 @@ const octopus = {
     setCurrCat(copyCat){
         model.currentCat = copyCat
     },
+
+    addCat(catName,catImage){
+        model.add(catName,catImage)
+        clickerView.init()
+        displayView.init()
+    },
+
     getActiveBtn(){
         return model.prevBtn
     },
@@ -68,6 +85,7 @@ const octopus = {
         model.init()
         clickerView.init()
         displayView.init()
+        adminView.init()
     }
 }
 
@@ -78,6 +96,8 @@ const clickerView = {
             clickArea: document.querySelector(".click-area"),
             listGrp: document.querySelector("ul")
         }
+        this.dom.listGrp.innerHTML = ''  //clear cat button list
+
         octopus.goGetCats().forEach( (cat)=>{
             const catBtn = createCatBtn(cat)
             bindEventToCatBtn(catBtn,cat)
@@ -123,7 +143,54 @@ const displayView = {
     }
 }
 
+const adminView = {
+
+
+    init(){
+        const adminBtn = document.querySelector(".admin-btn")
+        this.catName = document.querySelector('#cat-name')
+        this.catImage = document.querySelector('#cat-image')
+        this.formStyle = document.getElementsByClassName("form-container")[0].style,
+        this.saveBtn = document.querySelector('#save'),
+        this.cancelBtn = document.querySelector('#cancel')
+
+        adminBtn.addEventListener('click', ()=>{
+             this.render()
+        })
+
+        saveAndHide(this.catName, this.catImage)
+
+        cancelAndHide(this.catName,this.catImage)
+        
+    },
+    render(){
+        this.formStyle.display = 'inline-flex'
+    }
+}
 octopus.init()
+
+//=======================================================
+// Admin Helper Functions
+function saveAndHide(catName,catImage){     
+    adminView.saveBtn.addEventListener('click', ()=>{
+        octopus.addCat(catName.value,catImage.value)
+        formCleanAndHide()
+    })
+            
+}
+
+function cancelAndHide(catName,catImage){
+   adminView.cancelBtn.addEventListener('click', ()=> {
+        formCleanAndHide()
+        }) 
+}
+
+function formCleanAndHide(){
+    adminView.catName.value = ''
+    adminView.catImage.value = ''
+    adminView.formStyle.display = 'none'
+}
+//==========================================================
 
 
 //=====================================================

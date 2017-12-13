@@ -18,10 +18,11 @@
 </head>
 
 <body>
-    <header>
-        <h2>Click Cute Cat Picture to Like</h2>
-    </header>
+    
     <main role='main container'>
+	    <header>
+	        <h2>Click Cute Cat Picture to Like</h2>
+	    </header>
         <section role='list of cat' class='click-area'>
                 <ul>
                 </ul>
@@ -30,9 +31,34 @@
         <section role='area displaying cat' class='display-area'>
             <div class='cat-container'>
                 <header class='cat-name'></header>
-                <img class='cat-image'>
-                <p class='cat-count'></p>
+                <div class='img-container'>
+                	<img class='cat-image'>
+                </div>
+                <strong class='cat-count'></strong><span> love !!!!!!!!!</span>
             </div>
+        </section>
+
+        <section role='admin panel' class='admin'>
+        	<button class='admin-btn'> Admin </button>
+        	<div class='form-container'>
+        		<form role='form to add cat' id='form1'>
+        			<fieldset>
+        				<legend>Add new cat to the pools</legend>
+	        				<div>
+	        					<label for='cat-name'>cat name: </label>
+	        					<input type ='text' name='cat-name' id='cat-name' placeholder=" Snow Paw">
+	        				</div>
+	        				<div>
+	        					<label for='cat-image'>cat image url: </label>
+	        					<input type ='text' name='cat-image' id='cat-image' placeholder=" https://www.cat.com/snow_paw">
+	        				</div>
+        			</fieldset>
+        		</form>
+        		<div class='btn-control'>
+	        		<button id='cancel'>Cancel</button>
+	        		<button id='save'>Save</button>
+        		</div>
+        	</div>
         </section>
     </main>
     

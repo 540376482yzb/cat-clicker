@@ -3,10 +3,14 @@
     margin: 0;
     padding: 0;
 }
-
+html,body{
+}
 main{
-    margin: 20px 20px;
-    width: 1200px;
+    /*margin: 20px 20px;*/
+    width: 80%;
+    margin: 0 auto;
+    border: solid 2px black;
+    padding: 12px 18px;
 }
 
 ul{
@@ -18,14 +22,30 @@ li{
 img{
     width: 300px;
     height: 200px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px grey;
+    border-radius:5px;
+}
+img:active{
+    box-shadow: none;
+}
+.img-container{
+    padding: 5px 5px;
+}
+.img-container:active{
+    padding:10px 0 0 10px;
 }
 header{
     padding: 18px 12px;
+    text-align: center;
     
+}
+section{
+    vertical-align: middle;
 }
 .cat-container{
     width: 320px;
-    padding:10px;
+
 }
 .cat-name{
     text-align: center;
@@ -55,5 +75,67 @@ header{
     display: inline-block;
 }
 .click-area{
-    width: 200px;
+    width: 30%;
 }
+/*admin section*/
+.admin{
+    margin: 30px 0 20px 0;
+}
+.admin button, .admin .form-container{
+    vertical-align: top;
+}
+.form-container{
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 50px;
+    border: solid 2px grey;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px 5px #E0E0E0;
+    padding: 10px 50px;
+    width: 70%;
+
+}
+.form-container legend{
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+.form-container label{
+    display:block;
+    width:100%;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+.form-container input{
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+}
+.btn-control{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.admin button{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 0;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0 5px 5px grey;
+    background-color: white;
+    border: 0;
+}
+.admin button:active{
+    box-shadow: none;
+    outline: none !important;
+    outline-color: transparent !important;
+    border-color: transparent !important;
+}
+
