@@ -50,7 +50,6 @@ const model = {
     }
 }
 
-
 const octopus = {
 
     incrCatCount(){
@@ -89,7 +88,6 @@ const octopus = {
     }
 }
 
-
 const clickerView = {
     init(){
         this.dom = {
@@ -121,7 +119,6 @@ const clickerView = {
         octopus.setActiveBtn(btn)
     }
 }
-
 
 const displayView = {
 
